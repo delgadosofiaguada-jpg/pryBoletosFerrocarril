@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             gbConsultaPrecio = new GroupBox();
-            cmdConfirmar = new Button();
             nudDias = new NumericUpDown();
+            cmdConfirmar = new Button();
             lblDias = new Label();
             mtbDistancia = new MaskedTextBox();
             lblDistancia = new Label();
@@ -42,55 +42,59 @@
             // 
             // gbConsultaPrecio
             // 
-            gbConsultaPrecio.Controls.Add(cmdConfirmar);
             gbConsultaPrecio.Controls.Add(nudDias);
+            gbConsultaPrecio.Controls.Add(cmdConfirmar);
             gbConsultaPrecio.Controls.Add(lblDias);
             gbConsultaPrecio.Controls.Add(mtbDistancia);
             gbConsultaPrecio.Controls.Add(lblDistancia);
             gbConsultaPrecio.Font = new Font("Arial", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            gbConsultaPrecio.Location = new Point(12, 12);
+            gbConsultaPrecio.Location = new Point(14, 16);
+            gbConsultaPrecio.Margin = new Padding(3, 4, 3, 4);
             gbConsultaPrecio.Name = "gbConsultaPrecio";
-            gbConsultaPrecio.Size = new Size(276, 172);
+            gbConsultaPrecio.Padding = new Padding(3, 4, 3, 4);
+            gbConsultaPrecio.Size = new Size(352, 229);
             gbConsultaPrecio.TabIndex = 0;
             gbConsultaPrecio.TabStop = false;
             gbConsultaPrecio.Text = "Consultar precio del Boleto";
             // 
+            // nudDias
+            // 
+            nudDias.Location = new Point(186, 120);
+            nudDias.Maximum = new decimal(new int[] { 30, 0, 0, 0 });
+            nudDias.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            nudDias.Name = "nudDias";
+            nudDias.Size = new Size(75, 29);
+            nudDias.TabIndex = 5;
+            nudDias.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
             // cmdConfirmar
             // 
             cmdConfirmar.Enabled = false;
-            cmdConfirmar.Location = new Point(15, 143);
+            cmdConfirmar.Location = new Point(17, 190);
+            cmdConfirmar.Margin = new Padding(3, 4, 3, 4);
             cmdConfirmar.Name = "cmdConfirmar";
-            cmdConfirmar.Size = new Size(84, 23);
+            cmdConfirmar.Size = new Size(126, 31);
             cmdConfirmar.TabIndex = 4;
             cmdConfirmar.Text = "Confirmar";
             cmdConfirmar.UseVisualStyleBackColor = true;
             cmdConfirmar.Click += cmdConfirmar_Click;
             // 
-            // nudDias
-            // 
-            nudDias.Location = new Point(141, 88);
-            nudDias.Maximum = new decimal(new int[] { 30, 0, 0, 0 });
-            nudDias.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            nudDias.Name = "nudDias";
-            nudDias.Size = new Size(120, 25);
-            nudDias.TabIndex = 3;
-            nudDias.Value = new decimal(new int[] { 1, 0, 0, 0 });
-            // 
             // lblDias
             // 
             lblDias.AutoSize = true;
-            lblDias.Location = new Point(15, 96);
+            lblDias.Location = new Point(17, 128);
             lblDias.Name = "lblDias";
-            lblDias.Size = new Size(109, 17);
+            lblDias.Size = new Size(143, 22);
             lblDias.TabIndex = 2;
             lblDias.Text = "Dias de estadía";
             // 
             // mtbDistancia
             // 
-            mtbDistancia.Location = new Point(141, 39);
-            mtbDistancia.Mask = "99999999km";
+            mtbDistancia.Location = new Point(161, 52);
+            mtbDistancia.Margin = new Padding(3, 4, 3, 4);
+            mtbDistancia.Mask = "0000km";
             mtbDistancia.Name = "mtbDistancia";
-            mtbDistancia.Size = new Size(120, 25);
+            mtbDistancia.Size = new Size(82, 29);
             mtbDistancia.TabIndex = 1;
             mtbDistancia.ValidatingType = typeof(int);
             mtbDistancia.MaskInputRejected += mtbDistancia_MaskInputRejected;
@@ -98,9 +102,9 @@
             // lblDistancia
             // 
             lblDistancia.AutoSize = true;
-            lblDistancia.Location = new Point(15, 47);
+            lblDistancia.Location = new Point(17, 63);
             lblDistancia.Name = "lblDistancia";
-            lblDistancia.Size = new Size(69, 17);
+            lblDistancia.Size = new Size(87, 22);
             lblDistancia.TabIndex = 0;
             lblDistancia.Text = "Distancia";
             // 
@@ -108,30 +112,32 @@
             // 
             lstbTotal.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lstbTotal.FormattingEnabled = true;
-            lstbTotal.ItemHeight = 17;
-            lstbTotal.Location = new Point(12, 231);
+            lstbTotal.ItemHeight = 21;
+            lstbTotal.Location = new Point(14, 308);
+            lstbTotal.Margin = new Padding(3, 4, 3, 4);
             lstbTotal.Name = "lstbTotal";
-            lstbTotal.Size = new Size(272, 89);
+            lstbTotal.Size = new Size(310, 109);
             lstbTotal.TabIndex = 1;
             // 
             // lblTotal
             // 
             lblTotal.AutoSize = true;
             lblTotal.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTotal.Location = new Point(12, 198);
+            lblTotal.Location = new Point(14, 264);
             lblTotal.Name = "lblTotal";
-            lblTotal.Size = new Size(39, 17);
+            lblTotal.Size = new Size(50, 23);
             lblTotal.TabIndex = 2;
             lblTotal.Text = "Total:";
             // 
             // Boleteria
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(331, 332);
+            ClientSize = new Size(378, 443);
             Controls.Add(lblTotal);
             Controls.Add(lstbTotal);
             Controls.Add(gbConsultaPrecio);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Boleteria";
             Text = "Boletería Ferrocarril";
             gbConsultaPrecio.ResumeLayout(false);
@@ -146,10 +152,10 @@
         private GroupBox gbConsultaPrecio;
         private MaskedTextBox mtbDistancia;
         private Label lblDistancia;
-        private NumericUpDown nudDias;
         private Label lblDias;
         private ListBox lstbTotal;
         private Label lblTotal;
         private Button cmdConfirmar;
+        private NumericUpDown nudDias;
     }
 }
