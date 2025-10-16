@@ -82,6 +82,7 @@
             // 
             // cmdConfirmar
             // 
+            cmdConfirmar.Enabled = false;
             cmdConfirmar.Location = new Point(17, 196);
             cmdConfirmar.Margin = new Padding(3, 4, 3, 4);
             cmdConfirmar.Name = "cmdConfirmar";
