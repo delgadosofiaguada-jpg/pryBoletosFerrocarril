@@ -6,25 +6,15 @@ namespace pryBoletosFerrocarril
         {
             InitializeComponent();
         }
-        private void mtbDistancia_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-            if (mtbDistancia.Text == "")
-            {
-                cmdConfirmar.Enabled = false;
-            }
-            else
-            {
-                cmdConfirmar.Enabled = true;
-            }
-
-        }
 
         private void cmdConfirmar_Click(object sender, EventArgs e)
         {
             int Distancia = 0;
-            Decimal TotalPagar = 0;
-            Decimal PrecioDistancia = 0;
+            int Dias = 0;
+            Decimal Total = 0;
+            Decimal PrecioKm = 5;
 
+            //  Convertir el texto de los MaskedTextBox a int usando int.TryParse
             if (!int.TryParse(mtbDistancia.Text, out Distancia))
             {
                 MessageBox.Show("Debe ingresar un valor numérico válido para los kilómetros.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -32,17 +22,37 @@ namespace pryBoletosFerrocarril
                 return;
             }
 
-            int Dias = (int)nudDias.Value;
-            PrecioDistancia = (Distancia * 5);
+            if (!int.TryParse(mtbDias.Text, out Dias))
+            {
+                MessageBox.Show("Debe ingresar un valor numérico válido para los días.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                mtbDias.Focus();
+                return;
+            }
+
+            if (Dias < 1 || Dias > 30)
+            {
+                MessageBox.Show("La cantidad de dias debe estar entre 1 y 30", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                mtbDias.Focus();
+                return;
+            }
+
+            Total = (Distancia * 2 * PrecioKm);
 
             if (Distancia >= 100 && Dias >= 7)
             {
-                TotalPagar = PrecioDistancia / 2;
+                Total = Total / 2;
             }
-            lstbTotal.Items.Add("Distancia recorrida: " + Distancia);
-            lstbTotal.Items.Add("Dias de estadía " + Dias);
-            lstbTotal.Items.Add("Descuento:" + PrecioDistancia);
-            lstbTotal.Items.Add("Total a pagar: " + TotalPagar);
+
+            MessageBox.Show("Distancia:" + Distancia + "Km\n" +
+                "Dias de estancia: " + Dias + "\n" + "Precio por km: " + PrecioKm + "\n" +
+               "Precio ida y vuelta: " + Total + "\n" + "Precio final: $ " + Total);
+        }
+
+        private void cmdCancelar_Click(object sender, EventArgs e)
+        {
+            mtbDistancia.Clear();
+            mtbDias.Clear();
+            mtbDistancia.Focus();
         }
     }
 }

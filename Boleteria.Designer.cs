@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Boleteria));
             gbConsultaPrecio = new GroupBox();
-            nudDias = new NumericUpDown();
+            cmdCancelar = new Button();
+            mtbDias = new MaskedTextBox();
             cmdConfirmar = new Button();
             lblDias = new Label();
             mtbDistancia = new MaskedTextBox();
@@ -37,12 +39,12 @@
             lstbTotal = new ListBox();
             lblTotal = new Label();
             gbConsultaPrecio.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)nudDias).BeginInit();
             SuspendLayout();
             // 
             // gbConsultaPrecio
             // 
-            gbConsultaPrecio.Controls.Add(nudDias);
+            gbConsultaPrecio.Controls.Add(cmdCancelar);
+            gbConsultaPrecio.Controls.Add(mtbDias);
             gbConsultaPrecio.Controls.Add(cmdConfirmar);
             gbConsultaPrecio.Controls.Add(lblDias);
             gbConsultaPrecio.Controls.Add(mtbDistancia);
@@ -52,25 +54,35 @@
             gbConsultaPrecio.Margin = new Padding(3, 4, 3, 4);
             gbConsultaPrecio.Name = "gbConsultaPrecio";
             gbConsultaPrecio.Padding = new Padding(3, 4, 3, 4);
-            gbConsultaPrecio.Size = new Size(352, 229);
+            gbConsultaPrecio.Size = new Size(375, 244);
             gbConsultaPrecio.TabIndex = 0;
             gbConsultaPrecio.TabStop = false;
             gbConsultaPrecio.Text = "Consultar precio del Boleto";
             // 
-            // nudDias
+            // cmdCancelar
             // 
-            nudDias.Location = new Point(186, 120);
-            nudDias.Maximum = new decimal(new int[] { 30, 0, 0, 0 });
-            nudDias.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            nudDias.Name = "nudDias";
-            nudDias.Size = new Size(75, 29);
-            nudDias.TabIndex = 5;
-            nudDias.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            cmdCancelar.Location = new Point(161, 196);
+            cmdCancelar.Margin = new Padding(3, 4, 3, 4);
+            cmdCancelar.Name = "cmdCancelar";
+            cmdCancelar.Size = new Size(126, 31);
+            cmdCancelar.TabIndex = 6;
+            cmdCancelar.Text = "Cancelar";
+            cmdCancelar.UseVisualStyleBackColor = true;
+            cmdCancelar.Click += cmdCancelar_Click;
+            // 
+            // mtbDias
+            // 
+            mtbDias.Location = new Point(179, 121);
+            mtbDias.Margin = new Padding(3, 4, 3, 4);
+            mtbDias.Mask = "99";
+            mtbDias.Name = "mtbDias";
+            mtbDias.Size = new Size(82, 29);
+            mtbDias.TabIndex = 5;
+            mtbDias.ValidatingType = typeof(int);
             // 
             // cmdConfirmar
             // 
-            cmdConfirmar.Enabled = false;
-            cmdConfirmar.Location = new Point(17, 190);
+            cmdConfirmar.Location = new Point(17, 196);
             cmdConfirmar.Margin = new Padding(3, 4, 3, 4);
             cmdConfirmar.Name = "cmdConfirmar";
             cmdConfirmar.Size = new Size(126, 31);
@@ -92,12 +104,11 @@
             // 
             mtbDistancia.Location = new Point(161, 52);
             mtbDistancia.Margin = new Padding(3, 4, 3, 4);
-            mtbDistancia.Mask = "0000km";
+            mtbDistancia.Mask = "9999";
             mtbDistancia.Name = "mtbDistancia";
             mtbDistancia.Size = new Size(82, 29);
             mtbDistancia.TabIndex = 1;
             mtbDistancia.ValidatingType = typeof(int);
-            mtbDistancia.MaskInputRejected += mtbDistancia_MaskInputRejected;
             // 
             // lblDistancia
             // 
@@ -116,7 +127,7 @@
             lstbTotal.Location = new Point(14, 308);
             lstbTotal.Margin = new Padding(3, 4, 3, 4);
             lstbTotal.Name = "lstbTotal";
-            lstbTotal.Size = new Size(310, 109);
+            lstbTotal.Size = new Size(375, 109);
             lstbTotal.TabIndex = 1;
             // 
             // lblTotal
@@ -133,16 +144,16 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(378, 443);
+            ClientSize = new Size(414, 443);
             Controls.Add(lblTotal);
             Controls.Add(lstbTotal);
             Controls.Add(gbConsultaPrecio);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 4, 3, 4);
             Name = "Boleteria";
             Text = "Boletería Ferrocarril";
             gbConsultaPrecio.ResumeLayout(false);
             gbConsultaPrecio.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)nudDias).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -156,6 +167,7 @@
         private ListBox lstbTotal;
         private Label lblTotal;
         private Button cmdConfirmar;
-        private NumericUpDown nudDias;
+        private MaskedTextBox mtbDias;
+        private Button cmdCancelar;
     }
 }
