@@ -7,6 +7,7 @@ namespace pryBoletosFerrocarril
             InitializeComponent();
         }
 
+
         private void cmdConfirmar_Click(object sender, EventArgs e)
         {
             int Distancia = 0;
@@ -46,7 +47,7 @@ namespace pryBoletosFerrocarril
             MessageBox.Show("Distancia:" + Distancia + "Km\n" +
                 "Dias de estancia: " + Dias + "\n" + "Precio por km: " + PrecioKm + "\n" +
                "Precio ida y vuelta: " + Total + "\n" + "Precio final: $ " + Total);
-            
+
         }
 
 
@@ -55,21 +56,10 @@ namespace pryBoletosFerrocarril
             mtbDistancia.Clear();
             mtbDias.Clear();
             mtbDistancia.Focus();
-
-            // Mantener el estado del botón consistente al limpiar
-            UpdateConfirmButtonState();
         }
 
-        // Manejador común __TextChanged__ para ambos MaskedTextBox
-        private void Mtb_TextChanged(object sender, EventArgs e)
-        {
-            UpdateConfirmButtonState();
-        }
+       
 
-        // Habilita cmdConfirmar sólo cuando ambos MaskedTextBox están completos
-        private void UpdateConfirmButtonState()
-        {
-            cmdConfirmar.Enabled = mtbDistancia.MaskCompleted && mtbDias.MaskCompleted;
-        }
+        
     }
 }

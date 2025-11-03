@@ -72,17 +72,17 @@
             // 
             // mtbDias
             // 
+            mtbDias.Font = new Font("Arial", 10.8F);
             mtbDias.Location = new Point(179, 121);
             mtbDias.Margin = new Padding(3, 4, 3, 4);
             mtbDias.Mask = "99";
             mtbDias.Name = "mtbDias";
-            mtbDias.Size = new Size(82, 29);
+            mtbDias.Size = new Size(82, 28);
             mtbDias.TabIndex = 5;
             mtbDias.ValidatingType = typeof(int);
             // 
             // cmdConfirmar
             // 
-            cmdConfirmar.Enabled = false;
             cmdConfirmar.Location = new Point(17, 196);
             cmdConfirmar.Margin = new Padding(3, 4, 3, 4);
             cmdConfirmar.Name = "cmdConfirmar";
@@ -95,28 +95,31 @@
             // lblDias
             // 
             lblDias.AutoSize = true;
+            lblDias.Font = new Font("Arial", 10.8F);
             lblDias.Location = new Point(17, 128);
             lblDias.Name = "lblDias";
-            lblDias.Size = new Size(143, 22);
+            lblDias.Size = new Size(135, 21);
             lblDias.TabIndex = 2;
             lblDias.Text = "Dias de estadía";
             // 
             // mtbDistancia
             // 
+            mtbDistancia.Font = new Font("Arial", 10.8F);
             mtbDistancia.Location = new Point(161, 52);
             mtbDistancia.Margin = new Padding(3, 4, 3, 4);
             mtbDistancia.Mask = "9999";
             mtbDistancia.Name = "mtbDistancia";
-            mtbDistancia.Size = new Size(82, 29);
+            mtbDistancia.Size = new Size(82, 28);
             mtbDistancia.TabIndex = 1;
             mtbDistancia.ValidatingType = typeof(int);
             // 
             // lblDistancia
             // 
             lblDistancia.AutoSize = true;
+            lblDistancia.Font = new Font("Arial", 10.8F);
             lblDistancia.Location = new Point(17, 63);
             lblDistancia.Name = "lblDistancia";
-            lblDistancia.Size = new Size(87, 22);
+            lblDistancia.Size = new Size(84, 21);
             lblDistancia.TabIndex = 0;
             lblDistancia.Text = "Distancia";
             // 
@@ -152,6 +155,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 4, 3, 4);
             Name = "Boleteria";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Boletería Ferrocarril";
             gbConsultaPrecio.ResumeLayout(false);
             gbConsultaPrecio.PerformLayout();
