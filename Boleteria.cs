@@ -7,7 +7,16 @@ namespace pryBoletosFerrocarril
             InitializeComponent();
         }
 
-
+        struct BoleteriaFerrocarril
+        {
+            public int Distancia;
+            public int Dias;
+            public decimal PrecioPorKm;
+            public decimal Total;
+        }
+        // Vector 
+        BoleteriaFerrocarril[] VectorBoleteria = new BoleteriaFerrocarril[15];
+        int i = 0;
         private void cmdConfirmar_Click(object sender, EventArgs e)
         {
             int Distancia = 0;
@@ -48,6 +57,30 @@ namespace pryBoletosFerrocarril
                 "Dias de estancia: " + Dias + "\n" + "Precio por km: " + PrecioKm + "\n" +
                "Precio ida y vuelta: " + Total + "\n" + "Precio final: $ " + Total);
 
+            
+            if (i < 15)
+            {
+                VectorBoleteria[i].Distancia = Distancia;
+                VectorBoleteria[i].Dias = Dias;
+                VectorBoleteria[i].PrecioPorKm = PrecioKm;
+                VectorBoleteria[i].Total = Total;
+
+
+                lstbTotal.Text += $"Pasaje {i + 1}: " +
+                                      $"Distancia: {Distancia} km | " +
+                                      $"Días: {Dias} | " +
+                                      $"Precio/Km: ${PrecioKm} | " +
+                                      $"Total: ${Total}\n";
+
+                i++;
+            }
+            else
+            {
+                MessageBox.Show("Llegó al límite máximo de pasajes.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            mtbDistancia.Clear();
+            mtbDias.Clear();
+            mtbDistancia.Focus();
         }
 
 
